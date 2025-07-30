@@ -1,0 +1,92 @@
+First Phase(part 1)- 1. Database setup 2. REST Apis for crud 
+
+Model 1 - Listing model(places- apartment,villa,house,flat,hotel)
+   1.title(string)
+   2.description(string)
+   3.image(string)
+   4.price(number)
+   5.location(string)
+   6.country(string)
+
+Initialize database- initially we add some data so to perform any operation on that
+                  delete all the previous data and insert new one. 
+
+Routes- 
+
+a. create Index route path- /listings (GET) = this will show all the listings
+b. Show route(read)-   /listings/:id
+c. New and Create route: GET request-> /listings/new -> Form -> Submit -> POST request -> /listings
+d. Edit and update Route: GET request -> /listings/:id/edit -> edit form -> submit -> PUt request -> /listings/:id
+e. Delete route: destroy path-  DELETE request -> /listings/:id
+
+---------------------------------------------------------------------------------------------------------------------
+
+First Phase(part 2) - 1. Add styling 
+
+-> Ejs mate is a package used for icluding commen layouts like navbar and footer without designing several times
+-> includes boiler plate page works as a sample page that is comman for all paths/pages/routes
+
+---------------------------------------------------------------------------------------------------------------------
+
+First phase(part 3) - 
+
+1. Add Client Side Validations
+-> we dont use default browser validations cheaks but we use bootstrap forms validations
+
+2. Server side validations
+->price must be number async error- error handler in POST- /listings  
+-> Server side Schema validation using joi npm package
+
+---------------------------------------------------------------------------------------------------------------------
+
+Second Phase(Part 1) -
+
+user review model- (reviews) -> 1. Comment   2. Rating(1 to 5)    3. CreatedAt
+1-listing and n-reviews , 1 to many relationship
+
+Add review form in show page
+
+Add submission route for review: /listings/:id/reviews
+Validate review form:- 1. client side(bootstrap class)
+                       2. server side(joi schema) -> Schema validate function
+
+Delete route for reviews:- /listings/:id/reviews/:reviewId
+
+---------------------------------------------------------------------------------------------------------------------
+
+Second Phase (Part-2)
+
+-> restructuring listing and review route with express router
+-> adding cookies through express session
+-> using connect flash method for pop up message
+
+-------------------------------------------------------------------------------------------------------------------
+
+Second Phase (Part-3)
+
+-> Adding another model users
+-> adding authentication 
+-> Password hashing 
+-> Login and sign up users
+
+Signup Routes- 
+GET -> /signup
+POST -> /signup
+
+Login Routes-
+GET -> /Login
+POST -> /login
+
+Logout- 
+GET -> /logout
+
+-----------------------------------------------------------------------------------------------------------
+
+Second Phase (Part 4)
+
+Setting up aurthorization for listings -> by making a owner -> only owner can delete and edit his post
+Setting up aurthorization for reviews -> before creating a review user must be logged in
+
+-----------------------------------------------------------------------------------------------------------
+
+Third Phase- (Extra functions)

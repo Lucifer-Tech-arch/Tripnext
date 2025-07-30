@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><img src="/images/logo.png" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        
+      </div>
+      <div class="navbar-nav ms-auto search">
+      <form action="/listings" method="get" class="d-flex" role="search">
+      <input class="form-control me-2" type="text" placeholder="Search Destinations..." aria-label="Search" name="title" value="<%= typeof query !== 'undefined' ? query.title : '' %>"/>
+      <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+    </form>
+    </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Add Yours <i class="fa-solid fa-circle-plus"></i></a>
+        <% if(!curruser) { %>
+          <a class="nav-link active" aria-current="page" href="/signup">Sign Up</a>
+          <a class="nav-link" href="/login">Log In</a>
+          <% } %>
+            <% if(curruser) { %>
+              <a class="nav-link" href="/logout">Log Out</a>
+              <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
