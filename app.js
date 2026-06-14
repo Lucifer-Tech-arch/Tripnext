@@ -7,6 +7,10 @@ const port = 8080;
 const mongoose = require("mongoose");
 //const mongourl = 'mongodb://127.0.0.1:27017/wonderlust';
 const dburl = process.env.ATLASDB_TOKEN;
+if (!dburl) {
+    console.error("Missing ATLASDB_TOKEN in .env — copy .env.example to .env and set your MongoDB URL.");
+    process.exit(1);
+}
 const path = require("path");
 const methodoverride = require("method-override");
 const ejsmate = require("ejs-mate");
